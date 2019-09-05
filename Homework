@@ -34,7 +34,15 @@
     let b = 8;
     console.log(a % b == 0 && 1 || b % 2 == 0 && 1 || 0);
 }
-    //ete partadir payman chi vor tveric mek@ mec lini mnacacic;
+
+// 5 Given three numbers. Find the maximum one
+{
+    let a = 4;
+    let b = 5;
+    let c = 6;
+    console.log(a > b && a > c && "a" || b > c && "b" ||  "c");
+}
+//ete partadir payman chi vor tveric mek@ mec lini mnacacic;
 {   let a = 8;
     let b = 9;
     let c = 9;
@@ -43,13 +51,6 @@
         ||  c > a && c > b&&"c"||
         "ther isnt big number");
 
-}
-// 5 Given three numbers. Find the maximum one
-{
-    let a = 4;
-    let b = 5;
-    let c = 6;
-    console.log(a > b && a > c && "a" || b > c && "b" ||  "c");
 }
 //Given string ‘test’. Use variables and string methods and print ‘tetsetesesesesteest’:
 {

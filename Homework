@@ -32,7 +32,17 @@
 {
     let a = 6;
     let b = 8;
-    console.log(a%b == 0 && 1 ||b%2 ==0 && 1 || 0);
+    console.log(a % b == 0 && 1 || b % 2 == 0 && 1 || 0);
+}
+    //ete partadir payman chi vor tveric mek@ mec lini mnacacic;
+{   let a = 8;
+    let b = 9;
+    let c = 9;
+    console.log(a > b && a > c && "a"
+        || b > c && b >a &&"b"
+        ||  c > a && c > b&&"c"||
+        "ther isnt big number");
+
 }
 // 5 Given three numbers. Find the maximum one
 {

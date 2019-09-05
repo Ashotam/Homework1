@@ -25,7 +25,7 @@
 
 {
     let a = 5;
-    console.log(a%2 && "yes"|| "no");
+    console.log(a < 0 && "yes"|| "no");
 }
 
 //4 Given two numbers print 1 if one of them is divisible by the other one, otherwise print 0.

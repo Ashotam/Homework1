@@ -137,7 +137,18 @@ function isPrime(number){
     return "yes"
 }
 console.log(isPrime(48652348451111));
+//7 Write a recursive function to determine whether all digits of the number are odd or not.
+function isOdd(number){
 
+    if(number<10){
+
+        return number%2>0;
+    }
+
+    number =   number % 10 + isOdd((number-number % 10)/10);
+    return number % 2 >0;
+}
+console.log(isOdd(1311111));
 
 
 

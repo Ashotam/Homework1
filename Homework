@@ -58,7 +58,7 @@ for(let i=2;i<10;i++){
 }
 console.log(sum);
 
-//Insert a digit and a number. Check whether the digits contains in the number or not.(don`t use string)
+//2 Insert a digit and a number. Check whether the digits contains in the number or not.(don`t use string)
 
 
 function chek(number,digit){
@@ -69,7 +69,7 @@ function chek(number,digit){
     else return (number%10)==digit|| chek((number-number%10)/10,digit);
 }
 console.log(chek(0,0));
-//Enter a number. Reverse its first and last digits. Print the new number.
+//3 Enter a number. Reverse its first and last digits. Print the new number.
 
 
 function chekNumber(number){
@@ -124,8 +124,19 @@ function AccountNumber(number){
 
 console.log( AccountNumber(101));
 
+//5 Insert a number. Print ‘yes’ if the number is prime, ‘no’ otherwise.
 
-
+function isPrime(number){
+    if(number<3)return "yes";
+    for(let i=2;i<number;i++){
+        if(number % i ==0){
+            return "no";
+            break
+        }
+    }
+    return "yes"
+}
+console.log(isPrime(48652348451111));
 
 
 

@@ -1,73 +1,132 @@
-//1 What are the outputs of these expressions: '7' + 1 + 5 and 1 + 5 + '7' ?
-//'715', ‘67’;
+// 1
 
-//Swap 2 variables.
-   // With third variable
-//With arithmetic operators
-{
-    let a = 2;
-    let b = 4;
-    let c = a;
-    a = b;
-    b= c;
-    console.log(a,b)
-}
-{
-   let a = 2;
-   let b = 4;
-   a = a + b;
-    b = a - b;
-    a = a - b;
-    console.log(a,b)
+//Print all number between 1 and 10.
+
+for(let i=2;i<10;i++){
+    console.log(i);
 }
 
-//3 Check whether a given number is negative. Print “yes”, if it is negative, print “no” otherwiS;
 
-{
-    let a = 5;
-    console.log(a < 0 && "yes"|| "no");
+
+//Print all number between 1 and 10 except 6.
+
+for(let i=2;i<10;i++){
+    if(i==6){
+        continue
+    }
+    else  console.log(i);
 }
 
-//4 Given two numbers print 1 if one of them is divisible by the other one, otherwise print 0.
-{
-    let a = 6;
-    let b = 8;
-    console.log(a % b == 0 && 1 || b % a == 0 && 1 || 0);
+//Print all even number between 1 and 10.
+
+for(let i=2;i<10;i++){
+    if(i%2){
+        continue
+    }
+    else console.log(i);
 }
 
-// 5 Given three numbers. Find the maximum one
-{
-    let a = 4;
-    let b = 5;
-    let c = 6;
-    console.log(a > b && a > c && a+"" || b > c && b + "" ||  c + "");
+//Calculate sum of all numbers between 1 and 10 (using loop).
+let sum = 0;
+for(let i=2;i<10;i++){
+    sum+=i;
 }
-//ete partadir payman chi vor tveric mek@ mec lini mnacacic;
-{   let a = 8;
-    let b = 9;
-    let c = 9;
-    console.log(a > b && a > c && "a"
-        || b > c && b >a &&"b"
-        ||  c > a && c > b&&"c"||
-        "ther isnt big number");
-
+console.log(sum);
+//Calculate sum of all numbers between 1 and 10 except 8.
+let sum = 0;
+for(let i=2;i<10;i++){
+    if(i==8){
+        continue
+    }
+    sum+=i;
 }
-//Given string ‘test’. Use variables and string methods and print ‘tetsetesesesesteest’:
-{
-
-    let givenString = "test";
-    let newString = "tetsetesesesesteest";
-    let te = givenString.slice(0,2)
-    let tset = givenString.split("").reverse().join("");
-    let es = givenString.slice(1,3);
-    let eseseses= es.repeat(4);
-    let est = givenString.slice(1,4);
-
-    givenString = te.concat(tset,eseseses,te,est);
-    let a = "test";
-    a = a.slice(0,2).concat(a.split("").reverse().join(""),a.slice(1,3).repeat(4),a.slice(0,2),a.slice(1,4));
-    console.log(newString===givenString);
+console.log(sum);
+//Calculate sum of all odd numbers between 1 and 10.
+let sum = 0;
+for(let i=2;i<10;i++){
+    if(!(i%2)){
+        continue
+    }
+    sum+=i;
 }
+console.log(sum);
+//Calculate sum of squares of all numbers between 1 and 10.
+let sum = 0;
+for(let i=2;i<10;i++){
+
+    sum +=i*i;
+}
+console.log(sum);
+
+//Insert a digit and a number. Check whether the digits contains in the number or not.(don`t use string)
+
+
+function chek(number,digit){
+    if(number<10){
+        return number===digit
+    }
+
+    else return (number%10)==digit|| chek((number-number%10)/10,digit);
+}
+console.log(chek(0,0));
+//Enter a number. Reverse its first and last digits. Print the new number.
+
+
+function chekNumber(number){
+    if(number < 10){
+        return number
+    }
+    else if(number < 100){
+        let lastDigit = number%10;
+        let firstDigit= (number-number % 10) /10
+        number =""+lastDigit + firstDigit
+        return +number
+    }
+    let lastDigit = number%10;
+    let firstDigit = (function findeFirstDigit(digit){
+        if(digit<10)return digit
+        else return findeFirstDigit((digit-digit%10)/10)
+    })(number);
+    let stringOfValue = number+'';
+    let middleValue =  stringOfValue.slice(1,length-1)
+    let newValue = +(lastDigit + middleValue + firstDigit)
+    return   newValue
+}
+
+
+console.log(chekNumber(123456789));
+//Gevorg jan es ashxatel em maximal ancac@ kirarem;hetaqrqir er funkciayi mej Rekursia kirarel@ u en nor ancac Funkcian ogtagorcel@,comment kanes tenc baner kirarum en te animast bardacrel em
+
+
+//4 Enter a number. Find the difference between its biggest and smallest digits.
+function AccountNumber(number){
+    let copyOfNumber = number;
+    let smallest =9;
+    let biggest = 0;
+    if(number < 10){
+        return 0
+    }
+    while(number >0){
+
+        biggest =number % 10 > biggest?number % 10:biggest;
+        number =(number -number%10)/10;
+    }
+
+    while(copyOfNumber > 0){
+
+        smallest =copyOfNumber % 10 < smallest?copyOfNumber % 10:smallest;
+        copyOfNumber =(copyOfNumber -copyOfNumber%10)/10;
+    }
+
+    return biggest - smallest
+}
+
+
+console.log( AccountNumber(101));
+
+
+
+
 
 
 

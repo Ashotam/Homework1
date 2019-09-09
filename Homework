@@ -6,8 +6,6 @@ for(let i=2;i<10;i++){
     console.log(i);
 }
 
-
-
 //Print all number between 1 and 10 except 6.
 
 for(let i=2;i<10;i++){
@@ -57,10 +55,7 @@ for(let i=2;i<10;i++){
     sum +=i*i;
 }
 console.log(sum);
-
 //2 Insert a digit and a number. Check whether the digits contains in the number or not.(don`t use string)
-
-
 function chek(number,digit){
     if(number<10){
         return number===digit
@@ -70,8 +65,6 @@ function chek(number,digit){
 }
 console.log(chek(0,0));
 //3 Enter a number. Reverse its first and last digits. Print the new number.
-
-
 function chekNumber(number){
     if(number < 10){
         return number
@@ -92,12 +85,7 @@ function chekNumber(number){
     let newValue = +(lastDigit + middleValue + firstDigit)
     return   newValue
 }
-
-
 console.log(chekNumber(123456789));
-//Gevorg jan es ashxatel em maximal ancac@ kirarem;hetaqrqir er funkciayi mej Rekursia kirarel@ u en nor ancac Funkcian ogtagorcel@,comment kanes tenc baner kirarum en te animast bardacrel em
-
-
 //4 Enter a number. Find the difference between its biggest and smallest digits.
 function AccountNumber(number){
     let copyOfNumber = number;
@@ -120,12 +108,8 @@ function AccountNumber(number){
 
     return biggest - smallest
 }
-
-
 console.log( AccountNumber(101));
-
 //5 Insert a number. Print ‘yes’ if the number is prime, ‘no’ otherwise.
-
 function isPrime(number){
     if(number<3)return "yes";
     for(let i=2;i<number;i++){
@@ -167,10 +151,7 @@ function isOdd(number){
     return number % 2 >0;
 }
 console.log(isOdd(1311111));
-
 //8Write a function that accepts a string(a sentence) as a parameter and finds the longest word within the string․ If there are several words which are the longest ones, print the last word(words can be separated by space, comma or hyphen).
-
-
 function findeBiggestWorld(str){
     let biggest =""
     let y =0;

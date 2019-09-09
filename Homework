@@ -137,6 +137,24 @@ function isPrime(number){
     return "yes"
 }
 console.log(isPrime(48652348451111));
+ //6 Given a number n ( n > 0 ). Print Fibonacci series up to n.
+let allFibs = (n) => {
+    let Fib = (n) => {
+
+        if (n < 2) return n;
+        return Fib(n - 1) + Fib(n - 2);
+    };
+    let string = "";
+    for(let i =0;i<=n;i++){
+        string +=Fib(i) + ","
+    }
+    let allFibNumbers = string.slice(0,length-1);
+    return allFibNumbers;
+}
+console.log(allFibs(6));
+
+
+
 //7 Write a recursive function to determine whether all digits of the number are odd or not.
 function isOdd(number){
 
@@ -150,6 +168,34 @@ function isOdd(number){
 }
 console.log(isOdd(1311111));
 
+//8Write a function that accepts a string(a sentence) as a parameter and finds the longest word within the string․ If there are several words which are the longest ones, print the last word(words can be separated by space, comma or hyphen).
+
+str =
+
+    "Which would be worse - to live as a monster, or to die as a good man? jhkkkkhjkhjkhjkhjkhjkhjkhjkhjk"
 
 
+function FindeBiggestWorlf(str){
+    let bigest =""
+    let y =0;
+    let x =0;
+    let lastWorld ="";
+    for(let i = 0;i<str.length;i++){
+        if(str[i]==" "){
+
+            if (bigest.length > str.slice(y,i).length){
+                bigest = bigest
+                x = i;
+            }
+            else bigest =  str.slice(y,i)
+            y=i+1
+
+
+        }
+        lastWorld =str.slice(x);
+
+    }
+    return (bigest.length > lastWorld.length)?bigest:lastWorld
+}
+console.log(FindeBiggestWorlf("Which would be worse - to live as a monster, or to die as a good man? dasdasdasdasdasdasddadasd"));
 

@@ -170,32 +170,44 @@ console.log(isOdd(1311111));
 
 //8Write a function that accepts a string(a sentence) as a parameter and finds the longest word within the string․ If there are several words which are the longest ones, print the last word(words can be separated by space, comma or hyphen).
 
-str =
 
-    "Which would be worse - to live as a monster, or to die as a good man? jhkkkkhjkhjkhjkhjkhjkhjkhjkhjk"
-
-
-function FindeBiggestWorlf(str){
-    let bigest =""
+function findeBiggestWorld(str){
+    let biggest =""
     let y =0;
     let x =0;
     let lastWorld ="";
     for(let i = 0;i<str.length;i++){
         if(str[i]==" "){
 
-            if (bigest.length > str.slice(y,i).length){
-                bigest = bigest
+            if (biggest.length > str.slice(y,i).length){
+                biggest = biggest
                 x = i;
             }
-            else bigest =  str.slice(y,i)
+            else biggest =  str.slice(y,i);
             y=i+1
-
 
         }
         lastWorld =str.slice(x);
 
     }
-    return (bigest.length > lastWorld.length)?bigest:lastWorld
+    return (biggest.length > lastWorld.length)?biggest:lastWorld
 }
-console.log(FindeBiggestWorlf("Which would be worse - to live as a monster, or to die as a good man? dasdasdasdasdasdasddadasd"));
+console.log(findeBiggestWorld("Which would be worse - to live as a monster, or to die as a good man? dasdasdasdasdasdasddadasd"));
 
+//10Write a function, which receives two numbers as arguments and finds all numbers between them such that each digit of the number is even. The numbers obtained should be printed in a comma-separated sequence on a single line.
+function findeAllEvens(num1,num2){
+    let string ="";
+    function recurse(i){
+        if(i<10){
+            return i%2==0;
+        }
+        return i % 10 % 2==0 && recurse((i-i%10)/10);
+    }
+    for(let i = num1 +1;i<num2;i++){
+        if(recurse(i)){
+            string = string+i+","
+        }
+    }
+    return string
+}
+console.log(findeAllEvens(111,250));

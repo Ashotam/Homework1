@@ -60,8 +60,8 @@ function chek(number,digit){
     if(number<10){
         return number===digit
     }
-
-    else return (number%10)==digit|| chek((number-number%10)/10,digit);
+    let lastDigit = number % 10;
+    return (lastDigit) == digit|| chek((number-lastDigit)/10,digit);
 }
 console.log(chek(0,0));
 //3 Enter a number. Reverse its first and last digits. Print the new number.
@@ -69,23 +69,19 @@ function chekNumber(number){
     if(number < 10){
         return number
     }
-    else if(number < 100){
-        let lastDigit = number%10;
-        let firstDigit= (number-number % 10) /10
-        number =""+lastDigit + firstDigit
-        return +number
-    }
+
     let lastDigit = number%10;
     let firstDigit = (function findeFirstDigit(digit){
         if(digit<10)return digit
-        else return findeFirstDigit((digit-digit%10)/10)
+        return findeFirstDigit((digit-digit%10)/10)
     })(number);
-    let stringOfValue = number+'';
+    let stringOfValue = number + '';
     let middleValue =  stringOfValue.slice(1,length-1)
-    let newValue = +(lastDigit + middleValue + firstDigit)
+    let newValue = +(lastDigit + middleValue + firstDigit);
     return   newValue
 }
 console.log(chekNumber(123456789));
+
 //4 Enter a number. Find the difference between its biggest and smallest digits.
 function AccountNumber(number){
     let copyOfNumber = number;
@@ -95,27 +91,24 @@ function AccountNumber(number){
         return 0
     }
     while(number >0){
-
-        biggest =number % 10 > biggest?number % 10:biggest;
-        number =(number -number%10)/10;
+        let lastDigit = number % 10;
+        let lastCopyDigits = copyOfNumber % 10;
+        biggest = lastDigit > biggest?lastDigit:biggest;
+        smallest =lastCopyDigits < smallest?lastCopyDigits:smallest;
+        number =(number - lastDigit)/10;
     }
 
-    while(copyOfNumber > 0){
 
-        smallest =copyOfNumber % 10 < smallest?copyOfNumber % 10:smallest;
-        copyOfNumber =(copyOfNumber -copyOfNumber%10)/10;
-    }
-
-    return biggest - smallest
+    return biggest - smallest;
 }
-console.log( AccountNumber(101));
+console.log( AccountNumber(4593653));
 //5 Insert a number. Print ‘yes’ if the number is prime, ‘no’ otherwise.
 function isPrime(number){
     if(number<3)return "yes";
     for(let i=2;i<number;i++){
         if(number % i ==0){
             return "no";
-            break
+
         }
     }
     return "yes"
@@ -129,12 +122,13 @@ let allFibs = (n) => {
         return Fib(n - 1) + Fib(n - 2);
     };
     let string = "";
-    for(let i =0;i<=n;i++){
+    for(let i =0;i<=n-2;i++){
         string +=Fib(i) + ","
     }
     let allFibNumbers = string.slice(0,length-1);
     return allFibNumbers;
 }
+
 console.log(allFibs(6));
 
 
@@ -147,10 +141,13 @@ function isOdd(number){
         return number%2>0;
     }
 
-    number =   number % 10 + isOdd((number-number % 10)/10);
-    return number % 2 >0;
+
+    let lastDigit = number % 10;
+    return lastDigit % 2 >0 && isOdd((number-lastDigit)/10) % 2 >0;
+
 }
-console.log(isOdd(1311111));
+console.log(isOdd(121));
+
 //8Write a function that accepts a string(a sentence) as a parameter and finds the longest word within the string․ If there are several words which are the longest ones, print the last word(words can be separated by space, comma or hyphen).
 function findeBiggestWorld(str){
     let biggest =""

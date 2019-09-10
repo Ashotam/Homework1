@@ -157,20 +157,15 @@ function findeBiggestWorld(str){
     for(let i = 0;i<str.length;i++){
         if(str[i]==" "){
 
-            if (biggest.length > str.slice(y,i).length){
-                biggest = biggest
-                x = i;
-            }
-            else biggest =  str.slice(y,i);
-            y=i+1
-
+            biggest = (biggest.length < str.slice(y,i).length)?str.slice(y,i):biggest;
+            y = i+1;
+            x=i;
         }
-        lastWorld =str.slice(x);
-
     }
-    return (biggest.length > lastWorld.length)?biggest:lastWorld
+    lastWorld = str.slice(x);
+    return (biggest.length > lastWorld.length)?biggest:lastWorld;
 }
-console.log(findeBiggestWorld("Which would be worse - to live as a monster, or to die as a good man? dasdasdasdasdasdasddadasd"));
+console.log(findeBiggestWorld("A revolution without dancing is a revolution not worth having."));
 //9  Write a function to find longest substring in a given a string without repeating characters except space character.
 // If there are several, return the last one. Consider that all letters are lowercase.
 function biggest(text){

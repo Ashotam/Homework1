@@ -84,7 +84,7 @@ console.log(chekNumber(123456789));
 
 //4 Enter a number. Find the difference between its biggest and smallest digits.
 function AccountNumber(number){
-    let copyOfNumber = number;
+
     let smallest =9;
     let biggest = 0;
     if(number < 10){
@@ -92,9 +92,9 @@ function AccountNumber(number){
     }
     while(number >0){
         let lastDigit = number % 10;
-        let lastCopyDigits = copyOfNumber % 10;
+
         biggest = lastDigit > biggest?lastDigit:biggest;
-        smallest =lastCopyDigits < smallest?lastCopyDigits:smallest;
+        smallest =lastDigit < smallest?lastDigit:smallest;
         number =(number - lastDigit)/10;
     }
 
@@ -123,13 +123,18 @@ let allFibs = (n) => {
     };
     let string = "";
     for(let i =0;i<=n-2;i++){
-        string +=Fib(i) + ","
+        if(Fib(i) < n){
+
+            string +=Fib(i) + ","
+        }
+
     }
     let allFibNumbers = string.slice(0,length-1);
     return allFibNumbers;
 }
 
-console.log(allFibs(6));
+console.log(allFibs(45));
+
 
 
 
@@ -143,7 +148,7 @@ function isOdd(number){
 
 
     let lastDigit = number % 10;
-    return lastDigit % 2 >0 && isOdd((number-lastDigit)/10) % 2 >0;
+    return lastDigit % 2 >0 && isOdd((number-lastDigit)/10);
 
 }
 console.log(isOdd(121));
@@ -157,7 +162,7 @@ function findeBiggestWorld(str){
     for(let i = 0;i<str.length;i++){
         if(str[i]==" "){
 
-            biggest = (biggest.length < str.slice(y,i).length)?str.slice(y,i):biggest;
+            biggest = (biggest.length < i - y)?str.slice(y,i):biggest;
             y = i+1;
             x=i;
         }

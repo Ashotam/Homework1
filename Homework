@@ -114,26 +114,27 @@ function isPrime(number){
     return "yes"
 }
 console.log(isPrime(48652348451111));
- //6 Given a number n ( n > 0 ). Print Fibonacci series up to n.
-let allFibs = (n) => {
+// 6 Given a number n ( n > 0 ). Print Fibonacci series up to n.
+  let allFibs = (n) => {
     let Fib = (n) => {
 
         if (n < 2) return n;
         return Fib(n - 1) + Fib(n - 2);
     };
     let string = "";
-    for(let i =0;i<=n-2;i++){
-        if(Fib(i) < n){
+    for(let i =0;Fib(i)<n;i++){
 
-            string +=Fib(i) + ","
-        }
+
+        string +=Fib(i) + ","
+
 
     }
     let allFibNumbers = string.slice(0,length-1);
     return allFibNumbers;
 }
 
-console.log(allFibs(45));
+console.log(allFibs(7));
+
 
 
 

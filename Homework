@@ -123,11 +123,13 @@ let allFibs = (n) => {
     };
     let string = "";
     let i = 0;
-    while(n > Fib(i)){
+    let num = 0;
+    while(n > num){
 
 
-        string +=Fib(i) + ","
-        i++
+        string += num + ",";
+        i++;
+        num =Fib(i);
 
     }
     let allFibNumbers = string.slice(0,length-1);

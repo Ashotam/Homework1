@@ -87,3 +87,25 @@ function invertor(obj){
 
 
 console.log(invertor({ a: '1', b: '2',c:2,d:2 }));
+
+//8 Given an object. Write a function that creates a deep copy of it.
+
+function deepCopy(obj) {
+    let newObj = {};
+
+    for (let key in obj) {
+        let v = obj[key];
+        if (v) {
+            if (typeof v === "object") {
+                newObj[key] = deepCopy(v);
+            } else {
+                newObj[key] = v;
+            }
+        } else {
+            newObj[key] = v;
+        }
+    }
+
+    return newObj
+}
+console.log(deepCopy({a:5,b:6,c:{k:5,j:4},d:{i:{h:{o:9}}}}));

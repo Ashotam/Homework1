@@ -67,4 +67,23 @@ function calcArr(arr){
     return answer
 }
 console.log(calcArr([3, 7, 12, 5, 20, 0]));
- // 7
+ // 7 Given an object. Invert it (keys become values and values become keys). If there is more than key for that given value create an array.
+function invertor(obj){
+    let newObj = {};
+
+    for(let key in obj){
+        if(newObj.hasOwnProperty(obj[key])){
+            newObj[obj[key]]+= key;
+        }
+        else newObj[obj[key]] = key;
+    }
+    for(let key in newObj){
+        if(newObj[key].length > 1){
+            newObj[key]=newObj[key].split("")
+        }
+    }
+    return newObj
+}
+
+
+console.log(invertor({ a: '1', b: '2',c:2,d:2 }));

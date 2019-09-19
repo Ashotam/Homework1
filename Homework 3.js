@@ -14,14 +14,16 @@ function calcArr(arr){
     if(new2Arr.length == 1){
         return "only in one array have negative"
     }
-    let sum = 1;
-    new2Arr.map(item=>{
-        sum = sum * item[item.length-1]
 
-    });
+    let sum =  new2Arr.reduce((accumulator,currentValue)=>{
+        return accumulator * currentValue[currentValue.length-1]
+
+    },1);
     return sum
 }
-console.log(calcArr([1, 2, 3]));
+console.log(calcArr([[2, -9, -3, 0], [1, 2], [-4 , -11, 0]])
+);
+
 // 2 Given an array of strings and numbers. Print the number of integers and the numberof strings in the array.
 function checkArr(arr){
     let numbers =0;

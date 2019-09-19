@@ -26,19 +26,18 @@ console.log(calcArr([[2, -9, -3, 0], [1, 2], [-4 , -11, 0]])
 
 // 2 Given an array of strings and numbers. Print the number of integers and the numberof strings in the array.
 function checkArr(arr){
-    let numbers =0;
-    let strings =0;
-    for (let i =0; i<arr.length; i++){
-        if(typeof(arr[i])==="number"){
-            numbers ++;
+    let array = [0,0];
+    arr.reduce(function(acc,corentvalue){
+        if(typeof(corentvalue)=="number"){
+            array[0]++
         }
-        else strings ++
+        else array[1]++
+    },array);
 
-    }
-
-    return`Numbers:${numbers}, Strings:${strings}`
+    return`Numbers:${array[0]}, Strings:${array[1]}`
 }
 console.log(checkArr([1, 4, 'i am a string', '456']));
+
 // 3 Given an array consisting from the arrays of numbers (like a two-dimensional array). Find sum of each row and print them as an array.
 function calcArr(arr){
     const newArray = arr.map(item => item.reduce((acc,elem)=>acc+elem));
@@ -99,7 +98,7 @@ function deepCopy(obj){
     for (let key in obj) {
         let v = obj[key];
 
-        if(typeof(v)=="object") {
+        if( v && typeof(v)=="object") {
             newObj[key] = deepCopy(v);
         }
         else  newObj[key] = v;

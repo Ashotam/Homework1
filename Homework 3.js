@@ -16,7 +16,7 @@ function calcArr(arr){
     }
     let sum = 1;
     new2Arr.map(item=>{
-        sum = sum *item[item.length-1]
+        sum = sum * item[item.length-1]
 
     });
     return sum
@@ -26,12 +26,14 @@ console.log(calcArr([1, 2, 3]));
 function checkArr(arr){
     let numbers =0;
     let strings =0;
-    arr.map(item=>{
-        if(typeof(item)==="number"){
+    for (let i =0; i<arr.length; i++){
+        if(typeof(arr[i])==="number"){
             numbers ++;
         }
         else strings ++
-    });
+
+    }
+
     return`Numbers:${numbers}, Strings:${strings}`
 }
 console.log(checkArr([1, 4, 'i am a string', '456']));
@@ -70,42 +72,39 @@ console.log(calcArr([3, 7, 12, 5, 20, 0]));
  // 7 Given an object. Invert it (keys become values and values become keys). If there is more than key for that given value create an array.
 function invertor(obj){
     let newObj = {};
-
+    let arr = []
     for(let key in obj){
         if(newObj.hasOwnProperty(obj[key])){
-            newObj[obj[key]]+= key;
+            if(!Array.isArray(newObj[obj[key]])){
+                newObj[obj[key]] = [newObj[obj[key]]]
+            }
+            newObj[obj[key]].push(key)
         }
         else newObj[obj[key]] = key;
     }
-    for(let key in newObj){
-        if(newObj[key].length > 1){
-            newObj[key]=newObj[key].split("")
-        }
-    }
+
+
     return newObj
 }
-
 
 console.log(invertor({ a: '1', b: '2',c:2,d:2 }));
 
 //8 Given an object. Write a function that creates a deep copy of it.
 
-function deepCopy(obj) {
+function deepCopy(obj){
     let newObj = {};
 
     for (let key in obj) {
         let v = obj[key];
-        if (v) {
-            if (typeof v === "object") {
-                newObj[key] = deepCopy(v);
-            } else {
-                newObj[key] = v;
-            }
-        } else {
-            newObj[key] = v;
+
+        if(typeof(v)=="object") {
+            newObj[key] = deepCopy(v);
         }
+        else  newObj[key] = v;
     }
 
     return newObj
 }
+
+
 console.log(deepCopy({a:5,b:6,c:{k:5,j:4},d:{i:{h:{o:9}}}}));

@@ -26,17 +26,21 @@ console.log(calcArr([[2, -9, -3, 0], [1, 2], [-4 , -11, 0]])
 
 // 2 Given an array of strings and numbers. Print the number of integers and the numberof strings in the array.
 function checkArr(arr){
-    let array = [0,0];
-    arr.reduce(function(acc,corentvalue){
-        if(typeof(corentvalue)=="number"){
-            array[0]++
-        }
-        else array[1]++
-    },array);
 
-    return`Numbers:${array[0]}, Strings:${array[1]}`
+    let sum = arr.reduce(function(acc,corentvalue){
+        if(typeof(corentvalue)=="number"){
+            acc[0]++
+            return  acc
+        }
+        else
+        acc[1]++
+        return  acc
+    },[0,0]);
+
+    return`Numbers:${sum[0]}, Strings:${sum[1]}`
 }
 console.log(checkArr([1, 4, 'i am a string', '456']));
+
 
 // 3 Given an array consisting from the arrays of numbers (like a two-dimensional array). Find sum of each row and print them as an array.
 function calcArr(arr){

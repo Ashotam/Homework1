@@ -1,0 +1,129 @@
+//Swap 2 variables.
+ //   With third variable
+//With arithmetic operators (1 point)
+ let a = 5;
+ let b = 10;
+ a = a+b;
+ b = a-b;
+ a = a-b;
+ let c = b;
+  b = a;
+  a = c;
+
+//Given three numbers. Find the maximum one (Only use &&, || and comparison operators) (2 points)
+
+a >= b >=c && "a"|| b >= c &&"b"|| "c";
+
+//Given an array of integers. Write a function that returns a new array containing only odd numbers multiplied with new array length (2 points)
+function containing(arr){
+ let newArr = arr.filter(i=>i%2>0);
+ let length = newArr.length;
+ let result = newArr.map(i=> i * length);
+ return result
+}
+
+//	4)  Given an array of integers. Write a function which will get that array and create new array, with size equal to first positive element of given array (If no positive element return []) and content of returned array will be next elements of given array (repeated, if needed)
+
+function ArrGeter(arr){
+    let newArrLength =0;
+    let arrIndex = 0;
+    loop:2
+    for(let i =0; i< arr.length-1;i++){
+        if(arr[i] >0){
+            arrIndex = i+1;
+            newArrLength = arr[i];
+            break ;
+        }
+
+    }
+
+    let newArr =  new Array(newArrLength);
+    let oldarrIndex=arrIndex;
+
+    for(let i=0;i<newArrLength;i++){
+        newArr[i]=arr[arrIndex];
+        arrIndex++
+        if(arrIndex==arr.length){
+            arrIndex = oldarrIndex;
+        }
+    }
+    return newArr
+}
+
+
+console.log(ArrGeter([8, -9, 21]));
+//5) Given an array of integers. Write a function which will get that array and return an object with 2 properties even6 and odd7. Values of that properties will be
+// even6-> array of all positive numbers that are divisible by 6
+// odd7-> array of all positive odd numbers that are divisible by 7 (1 point)
+function objMaker (arr) {
+    let obj={
+        even6:[],
+        even7:[]
+    };
+    obj.even6 = arr.filter((item)=> item > 0 && item % 6==0);
+    obj.even7 = arr.filter((item)=> item >0 && item % 2>0 && item%7==0);
+    return obj
+}
+
+//7) What is the difference ?
+ //   ------------------------------------------------------
+ //       1-> function User(name) {
+  //  this.name = name;
+  //  this.printName = function() { console.log(this.name);};
+//}
+//-------------------------------------------------------
+ //   2-> function User(name) {
+  //  this.name = name;
+//}
+
+//User.prototype.printName = function() { console.log(this.name);};
+
+//7this i tarberutyuna linelu,arajin depqum this @ poxvelu e kaxvac kanchic,isk erkrod depqum this@ misht haskanalu e tvyal kanstruktrov stexcvac obyekti this@;
+
+//6) Create User class. User needs to have name (a string containing only letters), age (a number in the range [0, 200]) and birthdate (only date type), validate that properties by getters and setters.original property names need to be private (do it using Symbol) (3 points)
+nameSymbol = Symbol();
+ageSymbol = Symbol();
+class User {
+    get name() {
+        return this[nameSymbol];
+    }
+
+    get name() {
+        return this[ageSymbol];
+    }
+
+    set name(value) {
+        let arr = str.split("");
+        if (arr.every(i=>i >= "A" && i <= "z")){
+            this[nameSym] = value;
+
+        }
+        else {
+            throw new Error("In string not only letters");
+        }
+
+    }
+
+    set age(value) {
+        if (typeof(this.value) == "number") {
+            this[ageSymbol] = value
+        }else {
+            throw new Error("You must write all in numbers");
+        }
+    }
+}
+//11
+function* generator(x,y) {
+    yield x;
+    while(true){
+        x=x+y;
+        yield x
+    }
+}
+
+let gen = generator(5,3);
+//Write a generator named arithmeticProgression which takes 2 parameters: firstElement, delta and generates an arithmetic sequence of numbers such that the difference of any two successive members of the sequence is a constant (delta). So that
+
+console.log(gen.next().value);
+console.log(gen.next().value);
+console.log(gen.next().value);
